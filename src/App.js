@@ -1,49 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
 
 class App extends Component {
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      name: 'Mau',
-      counter: 0
-    };
-  }
-
-  handleClick = () => {
-    const { name } = this.state;
-    console.log(`Hello, ${name}!`);
-    this.setState({ name: 'Gandalf' });
-  }
-
-  handleIncrease = () => {
-    const { counter } = this.state;
-    this.setState({ counter: counter + 1});
-  }
+  state = {
+    posts: [
+      {
+        id: 1,
+        title: 'Title1',
+        body: 'Body1'
+      },
+      {
+        id: 2,
+        title: 'Title2',
+        body: 'Body2'
+      },
+      {
+        id: 3,
+        title: 'Title3',
+        body: 'Body3'
+      }
+  ]
+  };
 
   render() {
-    const { name, counter } = this.state;
+    const { posts } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            <span onClick={this.handleClick}>{name} - {counter}</span>
-            <br/>
-            <button onClick={this.handleIncrease}>+</button>
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Body</th>
+            </tr>
+          </thead>
+          <tbody>
+            {posts.map((post) => (
+              <tr key={post.id}>
+                <td>{post.id}</td>
+                <td>{post.title}</td>
+                <td>{post.body}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }
