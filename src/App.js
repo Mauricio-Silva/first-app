@@ -3,6 +3,7 @@ import { Component } from 'react';
 
 class App extends Component {
   state = {
+    counter: 0,
     posts: [
       {
         id: 1,
@@ -19,13 +20,37 @@ class App extends Component {
         title: 'Title3',
         body: 'Body3'
       }
-  ]
+    ]
   };
 
+  componentDidMount() {
+    this.handleTimeOut()
+  }
+
+  componentDidUpdate() {
+    this.handleTimeOut()
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeoutUpdate)
+  }
+
+  handleTimeOut = () => {
+    const { posts, counter } = this.state;
+    this.timeoutUpdate = setTimeout(() => {
+      posts[0].title = 'other title'
+      this.setState({
+        posts,
+        counter: counter + 1
+      })
+    }, 2000)
+  }
+
   render() {
-    const { posts } = this.state;
+    const { posts, counter } = this.state;
     return (
       <div className="App">
+        <div>Counter: {counter}</div>
         <table>
           <thead>
             <tr>
