@@ -2,6 +2,7 @@ import './App.css';
 import { Component } from 'react';
 
 class App extends Component {
+  timeoutUpdate = null
   state = {
     counter: 0,
     posts: [
