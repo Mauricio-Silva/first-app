@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+.container {
+  max-width: 1200px;
+  min-height: 100px;
+  background: linear-gradient(90deg, #cfd9df 0%, #e2ebf0 100%);
+  padding: 30px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main {
+  width: 500px;
+  margin: 200px auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+.post {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  transition: transform 150ms ease-in-out;
+}
+.post:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.post img {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  max-width: 100%;
+}
+.post h3, .post p {
+  padding: 0px 15px;
+}
+.post h3 {
+  text-transform: capitalize;
+  color: #222;
+}
+
+.btn-area {
+  display: flex;
+  margin-bottom: 40px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.btn:hover {
+  outline: 3px solid rgba(0, 0, 0, 0.3);
+  background-color: #212529;
+}
+.btn:active {
+  background-color: #000 !important;
+}
+.btn-lg {
+  width: 170px;
 }
 
-.App-link {
-  color: #61dafb;
+.albums {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 30px;
+}
+.album {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  transition: transform 150ms ease-in-out;
+}
+.album:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.album img {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  max-width: 100%;
+}
+.album h4 {
+  padding: 5px 15px;
+  margin-top: 8px;
+  text-transform: capitalize;
+  color: #222;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.carousel-caption p {
+  text-transform: capitalize;
 }
