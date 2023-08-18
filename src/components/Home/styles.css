@@ -39,6 +39,7 @@ main {
 .post h3 {
   text-transform: capitalize;
   color: #222;
+  margin-top: 15px;
 }
 
 .btn-area {
@@ -46,14 +47,14 @@ main {
   margin-bottom: 40px;
   justify-content: center;
 }
-.btn:hover {
+.btn-router:hover {
   outline: 3px solid rgba(0, 0, 0, 0.3);
   background-color: #212529;
 }
-.btn:active {
+.btn-router:active {
   background-color: #000 !important;
 }
-.btn-lg {
+.btn-router {
   width: 170px;
 }
 
@@ -86,4 +87,9 @@ main {
 
 .carousel-caption p {
   text-transform: capitalize;
+}
+
+.btn-load {
+  margin-top: 50px;
+  width: 300px;
 }
