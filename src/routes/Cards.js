@@ -10,7 +10,8 @@ class CardsPage extends Component {
     cards: [],
     allCars: [],
     page: 0,
-    cardsPerPage: 3
+    cardsPerPage: 3,
+    searchValue: ''
   };
 
   componentDidMount() {
@@ -31,19 +32,29 @@ class CardsPage extends Component {
     this.setState({cards: [...cards, ...nextCards], page: nextPage});
   }
 
+  handleSearch = (event) => {
+    const { value } = event.target;
+    this.setState({searchValue: value});
+  }
+
   render() {
-    const { cards } = this.state;
+    const { cards, searchValue } = this.state;
+    const filteredCards = !!searchValue ? cards.filter(card => {
+      return card.title.toLowerCase().includes(searchValue.toLowerCase());
+    })
+    : cards;
     return (
       <section className="container">
         <div className="btn-area">
           <Link to="/" className="btn btn-dark btn-lg btn-router">Home</Link>
         </div>
+        <input type="text" id="search" placeholder="Search..." onChange={this.handleSearch} value={searchValue}/>
         <div className="posts">
-          {cards.map((card) => (
+          {filteredCards.map((card) => (
             <Card key={card.id} card={card}/>
           ))}
         </div>
-        <Button text="Load more cars" action={this.loadMoreCards}/>
+        <Button text="Load more cards" action={this.loadMoreCards}/>
       </section>
     );
   }
